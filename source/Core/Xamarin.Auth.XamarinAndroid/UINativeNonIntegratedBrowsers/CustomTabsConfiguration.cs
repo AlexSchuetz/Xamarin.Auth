@@ -1,16 +1,15 @@
 ﻿using System;
 
-using Android.OS;
 using Android.App;
 using Android.Content;
-using Android.Support.CustomTabs;
 using System.Collections.Generic;
 using System.Linq;
+using AndroidX.Browser.CustomTabs;
 
 #if !AZURE_MOBILE_SERVICES
-using Android.Support.CustomTabs.Chromium.SharedUtilities;
+using AndroidX.Browser.CustomTabs.Chromium.SharedUtilities;
 #else
-using Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices;
+using AndroidX.Browser.CustomTabs.Chromium.SharedUtilities._MobileServices;
 #endif
 
 namespace Xamarin.Auth

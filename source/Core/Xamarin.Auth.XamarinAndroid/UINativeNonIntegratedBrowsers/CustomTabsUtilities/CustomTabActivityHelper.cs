@@ -16,16 +16,15 @@ using System;
 using System.Collections.Generic;
 
 using Android.App;
-using Android.Net;
 using Android.OS;
 using Android.Widget;
-using Android.Support.CustomTabs;
+using AndroidX.Browser.CustomTabs;
 using Xamarin.Auth;
 
 #if !AZURE_MOBILE_SERVICES
-namespace Android.Support.CustomTabs.Chromium.SharedUtilities
+namespace AndroidX.Browser.CustomTabs.Chromium.SharedUtilities
 #else
-namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
+namespace AndroidX.Browser.CustomTabs.Chromium.SharedUtilities._MobileServices
 #endif
 {
     /// <summary>
@@ -44,7 +43,7 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
         private CustomTabsActivityManager custom_tabs_activity_manager;
         private IConnectionCallback connection_callback;
         private CustomTabsIntent.Builder custom_tabs_intent_builder = null;
-        private Activity activity;
+        private Android.App.Activity activity;
         private Android.Net.Uri uri = null;
         private bool service_bound = false;
 
@@ -66,7 +65,7 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
 		/// <param name="fallback"> a CustomTabFallback to be used if Custom Tabs is not available. </param>
 		public /*static*/ void LaunchUrlWithCustomTabsOrFallback
                                 (
-                                    Activity a,
+                                    Android.App.Activity a,
                                     CustomTabsIntent custom_tabs_intent,
                                     string package_name_for_custom_tabs,
                                     Android.Net.Uri u,
@@ -144,7 +143,7 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
 
         protected void custom_tabs_activit_manager_CustomTabsServiceConnected 
                                     (
-                                        Content.ComponentName name, 
+                                        Android.Content.ComponentName name, 
                                         CustomTabsClient client
                                     )
         {
@@ -266,7 +265,7 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
         /// <summary>
         /// Binds the Activity to the Custom Tabs Service. </summary>
         /// <param name="activity"> the activity to be binded to the service. </param>
-        public virtual void BindCustomTabsService(Activity activity)
+        public virtual void BindCustomTabsService(Android.App.Activity activity)
         {
             if (custom_tabs_client != null)
             {
@@ -297,7 +296,7 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
         /// <summary>
         /// Unbinds the Activity from the Custom Tabs Service. </summary>
         /// <param name="activity"> the activity that is connected to the service. </param>
-        public virtual void UnbindCustomTabsService(Activity activity)
+        public virtual void UnbindCustomTabsService(Android.App.Activity activity)
         {
             if (custom_tabs_service_connection == null)
             {

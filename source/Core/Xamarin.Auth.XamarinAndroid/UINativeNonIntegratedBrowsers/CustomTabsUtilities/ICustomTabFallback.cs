@@ -3,9 +3,9 @@
 using Android.App;
 
 #if ! AZURE_MOBILE_SERVICES
-namespace Android.Support.CustomTabs.Chromium.SharedUtilities
+namespace AndroidX.Browser.CustomTabs.Chromium.SharedUtilities
 #else
-namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
+namespace AndroidX.Browser.CustomTabs.Chromium.SharedUtilities._MobileServices
 #endif
 {
     /// <summary>
@@ -20,6 +20,6 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
         /// 
         /// <param name="activity"> The Activity that wants to open the Uri. </param>
         /// <param name="uri"> The uri to be opened by the fallback. </param>
-        void OpenUri(Activity activity, Android.Net.Uri uri);
+        void OpenUri(Android.App.Activity activity, Android.Net.Uri uri);
     }
 }

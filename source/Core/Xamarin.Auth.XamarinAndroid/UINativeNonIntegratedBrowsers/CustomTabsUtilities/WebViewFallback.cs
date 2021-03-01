@@ -15,12 +15,12 @@
 using Android.App;
 using Android.Content;
 using Android.Net;
-using Android.Support.CustomTabs.Chromium.SharedUtilities;
+using AndroidX.Browser.CustomTabs.Chromium.SharedUtilities;
 
 #if ! AZURE_MOBILE_SERVICES
-namespace Android.Support.CustomTabs.Chromium.SharedUtilities
+namespace AndroidX.Browser.CustomTabs.Chromium.SharedUtilities
 #else
-namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
+namespace AndroidX.Browser.CustomTabs.Chromium.SharedUtilities._MobileServices
 #endif
 {
     /// <summary>
@@ -32,7 +32,7 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
     public partial class WebViewFallback : ICustomTabFallback
     #endif
     {
-        public void OpenUri(Activity activity, Uri uri)
+        public void OpenUri(Android.App.Activity activity, Uri uri)
         {
             //OpenUriSimple(activity, uri);
             OpenUriXamarinAuthWebViewActivity(activity, uri);
@@ -40,7 +40,7 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
             return;
         }
 
-        protected void OpenUriSimple(Activity activity, Uri uri)
+        protected void OpenUriSimple(Android.App.Activity activity, Uri uri)
         {
             Intent intent = new Intent(Intent.ActionView);
             intent.SetData(uri);
@@ -50,7 +50,7 @@ namespace Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices
         }
 
 
-        protected void OpenUriXamarinAuthWebViewActivity(Activity activity, Uri uri)
+        protected void OpenUriXamarinAuthWebViewActivity(Android.App.Activity activity, Uri uri)
         {
             Intent intent = new Intent(activity, typeof(Xamarin.Auth.WebViewActivity));
             intent.PutExtra(Xamarin.Auth.WebViewActivity.EXTRA_URL, uri.ToString());
